@@ -18,25 +18,54 @@
 
 // System includes
 #include <QObject>
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 // Application includes
+#include <athreadtemplate.h>
+#include <aproperties.h>
+#include <alogger.h>
 
 // Constants and definitions
 
 // Namespace
+namespace ARB {
 
 // Class definitions
 class AClientBackend : public QObject {
 
 	Q_OBJECT
 
-public:
+	public:
 
-	explicit AClientBackend(QObject *parent = nullptr);
-	virtual ~AClientBackend(void);
+		QGuiApplication* pGuiApplication = nullptr;
+		QQmlApplicationEngine* pEngine = nullptr;
+		QQmlContext* pRootContext = nullptr;
 
-signals:
+		AThreadTemplate* pThreadLowest = nullptr;
+		AThreadTemplate* pThreadLow = nullptr;
+		AThreadTemplate* pThreadNormal = nullptr;
+		AThreadTemplate* pThreadHigh = nullptr;
+		AThreadTemplate* pThreadHighest = nullptr;
 
+		ALogger* pLogger = nullptr;
+		AProperties* pProperties = nullptr;
+
+		static AClientBackend& mInstance(void);
+		void mInit(void);
+
+	private:
+
+		explicit AClientBackend(QObject *parent = nullptr);
+		virtual ~AClientBackend(void);
+		Q_DISABLE_COPY(AClientBackend)
+
+		void mInitThreads(void);
+		void mInitLogger(void);
+		void mDeleteThreads(void);
 };
+
+} // namespace ARB
 
 #endif // ACLIENTBACKEND_H

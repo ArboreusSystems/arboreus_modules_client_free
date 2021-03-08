@@ -20,6 +20,7 @@
 #include <QThread>
 
 // Application includes
+#include <aloggerglobal.h>
 
 // Constants and definitions
 

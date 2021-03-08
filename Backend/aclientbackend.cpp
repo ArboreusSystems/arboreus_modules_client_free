@@ -29,6 +29,7 @@ using namespace ARB;
 
 AClientBackend::AClientBackend(QObject *parent) : QObject(parent) {
 
+	A_CONSOLE_MESSAGE_DEBUG("AClientBackend created");
 }
 
 
@@ -42,6 +43,7 @@ AClientBackend::AClientBackend(QObject *parent) : QObject(parent) {
 AClientBackend::~AClientBackend(void) {
 
 	this->mDeleteThreads();
+	A_CONSOLE_MESSAGE_DEBUG("AClientBackend deleted");
 }
 
 

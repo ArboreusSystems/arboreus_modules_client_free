@@ -27,7 +27,10 @@ using namespace ARB;
 	Doc.
 */
 
-AThreadTemplate::AThreadTemplate(QObject* parent) : QThread(parent) {}
+AThreadTemplate::AThreadTemplate(QObject* parent) : QThread(parent) {
+
+	A_CONSOLE_MESSAGE_DEBUG("AThreadTemplate created");
+}
 
 
 // -----------
@@ -37,7 +40,10 @@ AThreadTemplate::AThreadTemplate(QObject* parent) : QThread(parent) {}
 	Doc.
 */
 
-AThreadTemplate::~AThreadTemplate(void) {}
+AThreadTemplate::~AThreadTemplate(void) {
+
+	A_CONSOLE_MESSAGE_DEBUG("AThreadTemplate deleted");
+}
 
 
 // -----------

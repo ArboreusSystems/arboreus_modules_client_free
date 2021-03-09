@@ -23,6 +23,7 @@
 #include <QQmlContext>
 
 // Application includes
+#include <aclientbackenddatamodels.h>
 #include <athreadtemplate.h>
 #include <aproperties.h>
 #include <alogger.h>

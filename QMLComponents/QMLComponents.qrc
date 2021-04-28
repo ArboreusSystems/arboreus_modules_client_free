@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/ClentFree/Modules/QMLComponents">
+        <file>Main/ClientFree_Mobile.qml</file>
+    </qresource>
+</RCC>

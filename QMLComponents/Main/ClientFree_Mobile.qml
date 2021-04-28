@@ -1,31 +1,29 @@
 // ----------------------------------------------------------
 /*!
-	\headerfile
-	\title
-	\brief Template file files/cppheader/file.h
+	\qmltype
+	\brief
 
 	\list
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 09/03/2021 at 09:59:45
+	\li @created 28/04/2021 at 19:14:41
 	\endlist
 */
 // ----------------------------------------------------------
-#ifndef ACLIENTBACKENDDATAMODELS_H
-#define ACLIENTBACKENDDATAMODELS_H
 
 // System includes
+import QtQuick 2.15
+import QtQuick.Controls 2.15
 
 // Application includes
 
-// Constants and defintions
 
-// Namespace
-namespace ARB {
+// Application
+ApplicationWindow {
 
-class AClientBackendConfig {};
-
-} // namespace ARB
-
-#endif // ACLIENTBACKENDDATAMODELS_H
+	id: oApplicationWindow;
+	visible: true;
+	title: qsTr("Application.title");
+	color: "red";
+}

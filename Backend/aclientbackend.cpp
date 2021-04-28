@@ -29,7 +29,6 @@ using namespace ARB;
 
 AClientBackend::AClientBackend(QObject *parent) : QObject(parent) {
 
-	A_CONSOLE_MESSAGE_DEBUG("AClientBackend created");
 }
 
 
@@ -42,8 +41,6 @@ AClientBackend::AClientBackend(QObject *parent) : QObject(parent) {
 
 AClientBackend::~AClientBackend(void) {
 
-	this->mDeleteThreads();
-	A_CONSOLE_MESSAGE_DEBUG("AClientBackend deleted");
 }
 
 
@@ -70,67 +67,5 @@ AClientBackend& AClientBackend::mInstance(void) {
 
 void AClientBackend::mInit(void) {
 
-	this->mInitThreads();
-	this->mInitLogger();
 }
 
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-
-void AClientBackend::mInitThreads(void) {
-
-	pThreadLowest = new AThreadTemplate(this);
-	pThreadLowest->mStart(QThread::Priority::LowestPriority);
-
-	pThreadLow = new AThreadTemplate(this);
-	pThreadLow->mStart(QThread::Priority::LowPriority);
-
-	pThreadNormal = new AThreadTemplate(this);
-	pThreadNormal->mStart(QThread::Priority::NormalPriority);
-
-	pThreadHigh = new AThreadTemplate(this);
-	pThreadHigh->mStart(QThread::Priority::HighPriority);
-
-	pThreadHighest = new AThreadTemplate(this);
-	pThreadHighest->mStart(QThread::Priority::HighestPriority);
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-void AClientBackend::mDeleteThreads(void) {
-
-	pThreadHighest->mQuit();
-	pThreadHigh->mQuit();
-	pThreadNormal->mQuit();
-	pThreadLow->mQuit();
-	pThreadLowest->mQuit();
-}
-
-
-// -----------
-/*!
-	\fn
-
-	Doc.
-*/
-
-
-void AClientBackend::mInitLogger(void) {
-
-	if (pLogger) {
-		pRootContext->setContextProperty("ALogger",pLogger);
-		pLogger->mInitWithThread(pThreadLow);
-	}
-}

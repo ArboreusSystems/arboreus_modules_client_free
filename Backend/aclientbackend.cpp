@@ -29,6 +29,7 @@ using namespace ARB;
 
 AClientBackend::AClientBackend(QObject *parent) : QObject(parent) {
 
+	_A_DEBUG << "AClientBackend created";
 }
 
 
@@ -41,6 +42,7 @@ AClientBackend::AClientBackend(QObject *parent) : QObject(parent) {
 
 AClientBackend::~AClientBackend(void) {
 
+	_A_DEBUG << "AClientBackend deleted";
 }
 
 
@@ -65,7 +67,31 @@ AClientBackend& AClientBackend::mInstance(void) {
 	Doc.
 */
 
-void AClientBackend::mInit(void) {
+void AClientBackend::mInit(
+	QGuiApplication* inGuiApplication,
+	QQmlApplicationEngine* inEngine,
+	QQmlContext* inRootContext
+) {
 
+	pGuiApplication = inGuiApplication;
+	pEngine = inEngine;
+	pRootContext = inRootContext;
+
+	this->mInitLogger();
+
+	_A_DEBUG << "AClientBackend initiated";
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void AClientBackend::mInitLogger(void) {
+
+	pLogger = new ALogger(pEngine);
+	pRootContext->setContextProperty("ALogger",pLogger);
+}

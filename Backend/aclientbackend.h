@@ -23,6 +23,7 @@
 #include <QQmlContext>
 
 // Application includes
+#include <alogger.h>
 
 // Constants and definitions
 
@@ -36,18 +37,26 @@ class AClientBackend : public QObject {
 
 	public:
 
+		ALogger* pLogger = nullptr;
+
 		QGuiApplication* pGuiApplication = nullptr;
 		QQmlApplicationEngine* pEngine = nullptr;
 		QQmlContext* pRootContext = nullptr;
 
 		static AClientBackend& mInstance(void);
-		void mInit(void);
+		void mInit(
+			QGuiApplication* inGuiApplication = nullptr,
+			QQmlApplicationEngine* inEngine = nullptr,
+			QQmlContext* inRootContext = nullptr
+		);
 
 	private:
 
 		explicit AClientBackend(QObject *parent = nullptr);
 		virtual ~AClientBackend(void);
 		Q_DISABLE_COPY(AClientBackend)
+
+		void mInitLogger(void);
 };
 
 } // namespace ARB

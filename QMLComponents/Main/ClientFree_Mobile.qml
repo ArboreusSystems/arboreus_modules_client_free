@@ -26,4 +26,42 @@ ApplicationWindow {
 	visible: true;
 	title: qsTr("Application.title");
 	color: "red";
+
+	Connections {
+
+		target: ABackend;
+		function onSgInitiated() {
+
+			console.debug("Iskey1:",ASettings.mIsKey("test"));
+
+			var oValue = ASettings.mGet("test");
+			console.log("oValue1.Status:",oValue.Status);
+			console.log("oValue1.Data:",oValue.Data);
+
+			console.debug("Iskey2:",ASettings.mIsKey("test"));
+
+			ASettings.mUpdate("test",12345);
+			oValue = ASettings.mGet("test");
+			console.log("oValue2.Status:",oValue.Status);
+			console.log("oValue2.Data:",oValue.Data);
+
+			console.debug("Iskey3:",ASettings.mIsKey("test"));
+
+			oValue = ASettings.mGet("test");
+			console.log("oValue3.Status:",oValue.Status);
+			console.log("oValue3.Data:",oValue.Data);
+		}
+	}
+
+//	Connections {
+
+//		target: ASettings;
+//		function onSgUpdated(inKey,inValue) {
+
+//			if (inKey === "test") {
+
+//				console.log("Value for key 'test':",inValue);
+//			}
+//		}
+//	}
 }

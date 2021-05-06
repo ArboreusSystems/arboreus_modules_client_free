@@ -13,8 +13,8 @@
 */
 // ----------------------------------------------------------
 
-#ifndef ACLIENTBACKEND_H
-#define ACLIENTBACKEND_H
+#ifndef ABACKEND_H
+#define ABACKEND_H
 
 // System includes
 #include <QObject>
@@ -24,6 +24,9 @@
 
 // Application includes
 #include <alogger.h>
+#include <aproperties.h>
+#include <asettings.h>
+#include <anetwork.h>
 
 // Constants and definitions
 
@@ -31,34 +34,48 @@
 namespace ARB {
 
 // Class definitions
-class AClientBackend : public QObject {
+class ABackend : public QObject {
 
 	Q_OBJECT
 
 	public:
 
+		AProperties* pProperties = nullptr;
 		ALogger* pLogger = nullptr;
+		ASettings* pSettings = nullptr;
+		ANetwork* pNetwork = nullptr;
 
 		QGuiApplication* pGuiApplication = nullptr;
 		QQmlApplicationEngine* pEngine = nullptr;
 		QQmlContext* pRootContext = nullptr;
 
-		static AClientBackend& mInstance(void);
+		static ABackend& mInstance(void);
 		void mInit(
 			QGuiApplication* inGuiApplication = nullptr,
 			QQmlApplicationEngine* inEngine = nullptr,
 			QQmlContext* inRootContext = nullptr
 		);
 
+	signals:
+
+		void sgInitiated(void);
+
 	private:
 
-		explicit AClientBackend(QObject *parent = nullptr);
-		virtual ~AClientBackend(void);
-		Q_DISABLE_COPY(AClientBackend)
+		QMap<QString,bool> pModules = {};
 
+		explicit ABackend(QObject *parent = nullptr);
+		virtual ~ABackend(void);
+		Q_DISABLE_COPY(ABackend)
+
+		void mInitCore(void);
+		void mInitServices(void);
+		void mInitProperties(void);
 		void mInitLogger(void);
+		void mInitSettings(void);
+		void mInitNetwork(void);
 };
 
 } // namespace ARB
 
-#endif // ACLIENTBACKEND_H
+#endif // ABACKEND_H

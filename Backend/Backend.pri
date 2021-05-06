@@ -1,7 +1,7 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
-	$$PWD/aclientbackend.h
+	$$PWD/abackend.h
 
 SOURCES += \
-	$$PWD/aclientbackend.cpp
+	$$PWD/abackend.cpp

@@ -155,6 +155,7 @@ void ABackend::mInitProperties(void) {
 	pProperties->mSetNameDomain("arboreus.systems");
 	pProperties->mSetNameOrganisation("Arboreus Systems");
 	pProperties->mInit();
+	pRootContext->setContextProperty("AProperties",pProperties);
 }
 
 

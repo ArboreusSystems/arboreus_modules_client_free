@@ -23,6 +23,9 @@ import QtQuick.Controls 2.15
 ApplicationWindow {
 
 	id: oApplicationWindow;
+	flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint;
+	width: AProperties.mIsDesktop() ? 400 : maximumWidth;
+	height: AProperties.mIsDesktop() ? 400 : maximumHeight;
 	visible: true;
 	title: qsTr("Application.title");
 	color: "red";

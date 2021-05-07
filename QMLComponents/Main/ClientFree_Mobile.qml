@@ -29,11 +29,11 @@ ApplicationWindow {
 
 	id: oApplicationWindow;
 	flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint;
-	width: AProperties.mIsDesktop() ? 400 : maximumWidth;
-	height: AProperties.mIsDesktop() ? 400 : maximumHeight;
+	width: AProperties.mIsDesktop() ? AConfigMobile.mDesktopUIWidth() : maximumWidth;
+	height: AProperties.mIsDesktop() ? AConfigMobile.mDesktopUIHeight() : maximumHeight;
 	visible: true;
-	title: qsTr("Application.title");
-	color: "red";
+	title: oApplicationWindow.pText;
+	color: "white";
 
 	Component.onCompleted: {
 

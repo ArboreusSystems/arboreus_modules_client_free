@@ -1,7 +1,9 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
-	$$PWD/abackend.h
+	$$PWD/abackend.h \
+	$$PWD/aconfigmobile.h
 
 SOURCES += \
-	$$PWD/abackend.cpp
+	$$PWD/abackend.cpp \
+	$$PWD/aconfigmobile.cpp

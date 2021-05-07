@@ -78,6 +78,10 @@ void ABackend::mInit(
 	pRootContext = inRootContext;
 
 	pRootContext->setContextProperty("ABackend",this);
+
+	pConfigMobile = new AConfigMobile(pEngine);
+	pRootContext->setContextProperty("AConfigMobile",pConfigMobile);
+
 	this->mInitCore();
 }
 

@@ -123,6 +123,7 @@ void ABackend::mInitServices(void) {
 
 	pSettings = new ASettings(pEngine);
 	pNetwork = new ANetwork(pEngine);
+	pDevice = new ADevice(pEngine);
 
 	QObject::connect(
 		pSettings,&ASettings::sgInitiated,
@@ -132,6 +133,12 @@ void ABackend::mInitServices(void) {
 	);
 	QObject::connect(
 		pNetwork,&ANetwork::sgInitiated,
+		[this](){
+			this->mInitDevice();
+		}
+	);
+	QObject::connect(
+		pDevice,&ADevice::sgInitiated,
 		[this](){
 			_A_DEBUG << "AClientBackend services initiated";
 			emit this->sgInitiated();
@@ -198,4 +205,18 @@ void ABackend::mInitNetwork(void) {
 
 	pNetwork->mInit();
 	pRootContext->setContextProperty("ANetwork",pNetwork);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ABackend::mInitDevice(void) {
+
+	pDevice->mInit();
+	pRootContext->setContextProperty("ADevice",pDevice);
 }

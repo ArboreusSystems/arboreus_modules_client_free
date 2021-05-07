@@ -27,6 +27,7 @@
 #include <aproperties.h>
 #include <asettings.h>
 #include <anetwork.h>
+#include <adevice.h>
 
 // Constants and definitions
 
@@ -44,6 +45,7 @@ class ABackend : public QObject {
 		ALogger* pLogger = nullptr;
 		ASettings* pSettings = nullptr;
 		ANetwork* pNetwork = nullptr;
+		ADevice* pDevice = nullptr;
 
 		QGuiApplication* pGuiApplication = nullptr;
 		QQmlApplicationEngine* pEngine = nullptr;
@@ -74,6 +76,7 @@ class ABackend : public QObject {
 		void mInitLogger(void);
 		void mInitSettings(void);
 		void mInitNetwork(void);
+		void mInitDevice(void);
 };
 
 } // namespace ARB

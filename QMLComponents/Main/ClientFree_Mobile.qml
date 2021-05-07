@@ -22,6 +22,11 @@ import QtQuick.Controls 2.15
 // Application
 ApplicationWindow {
 
+	property string pText: qsTr("Main.Application.Title");
+	property string pColorSafeArea: "green";
+	property string pColorBackground: "blue";
+	property var pStatusBarStyle: 0;
+
 	id: oApplicationWindow;
 	flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint;
 	width: AProperties.mIsDesktop() ? 400 : maximumWidth;
@@ -30,41 +35,93 @@ ApplicationWindow {
 	title: qsTr("Application.title");
 	color: "red";
 
-	Connections {
+	Component.onCompleted: {
 
-		target: ABackend;
-		function onSgInitiated() {
-
-			console.debug("Iskey1:",ASettings.mIsKey("test"));
-
-			var oValue = ASettings.mGet("test");
-			console.log("oValue1.Status:",oValue.Status);
-			console.log("oValue1.Data:",oValue.Data);
-
-			console.debug("Iskey2:",ASettings.mIsKey("test"));
-
-			ASettings.mUpdate("test",12345);
-			oValue = ASettings.mGet("test");
-			console.log("oValue2.Status:",oValue.Status);
-			console.log("oValue2.Data:",oValue.Data);
-
-			console.debug("Iskey3:",ASettings.mIsKey("test"));
-
-			oValue = ASettings.mGet("test");
-			console.log("oValue3.Status:",oValue.Status);
-			console.log("oValue3.Data:",oValue.Data);
-		}
+		oApplicationWindow.mSetSafeAreaInsets();
 	}
 
-//	Connections {
+	Rectangle {
 
-//		target: ASettings;
-//		function onSgUpdated(inKey,inValue) {
+		id: oApplicationWindowWrapper;
+		width: parent.width;
+		height: parent.height;
 
-//			if (inKey === "test") {
+		Rectangle {
 
-//				console.log("Value for key 'test':",inValue);
+			id: oPaddingLeft;
+			color: oApplicationWindow.pColorSafeArea;
+			height: parent.height;
+			anchors.top: parent.top;
+			anchors.left: parent.left;
+		}
+
+		Rectangle {
+
+			id: oPaddingRight;
+			color: oApplicationWindow.pColorSafeArea;
+			height: parent.height;
+			anchors.top: parent.top;
+			anchors.right: parent.right;
+		}
+
+		Rectangle {
+
+			id: oPaddingTop;
+			color: oApplicationWindow.pColorSafeArea;
+			anchors.top: parent.top;
+			anchors.left: oPaddingLeft.right;
+			anchors.right: oPaddingRight.left;
+		}
+
+		Rectangle {
+
+			id: oPaddingBottom;
+			color: oApplicationWindow.pColorSafeArea;
+			anchors.bottom: parent.bottom;
+			anchors.left: oPaddingLeft.right;
+			anchors.right: oPaddingRight.left;
+		}
+
+//		SScreenContentWrapper {
+
+//			id: oContentWrapper;
+//			anchors.top: oPaddingTop.bottom;
+//			anchors.bottom: oPaddingBottom.top;
+//			anchors.left: oPaddingLeft.right;
+//			anchors.right: oPaddingRight.left;
+//			color: SUISkin.mColorGreyDarkString();
+
+//			Component.onCompleted: {
+
+//				let oSafeAreaHeightOffset = oPaddingTop.height + oPaddingBottom.height;
+//				oContentWrapper.height = oApplicationWindowWrapper.height - oSafeAreaHeightOffset;
+
+//				let oSafeAreaWidthOffset = oPaddingLeft.width + oPaddingRight.height;
+//				oContentWrapper.width = oApplicationWindowWrapper.width - oSafeAreaWidthOffset;
+
+//				Qt.createQmlObject(
+//					SUIHandler.mComponentScreen("SScreenContent"),
+//					oContentWrapper,"oContent"
+//				);
+
+//				oApplicationWindow.mSetStatusBarStyleDefault();
 //			}
 //		}
+	}
+
+	function mSetSafeAreaInsets() {
+
+		let oSafeAreaInsets = ADevice.mSafeAreaInsets();
+
+		oPaddingTop.height = oSafeAreaInsets.Top;
+		oPaddingBottom.height = oSafeAreaInsets.Bottom;
+		oPaddingLeft.width = oSafeAreaInsets.Left;
+		oPaddingRight.width = oSafeAreaInsets.Right;
+	}
+
+//	function mSetStatusBarStyleDefault() {
+
+//		oApplicationWindow.pStatusBarStyle = SDEVICE.StatusBarStyle.Light;
+//		SDevice.mSetStatusBarStyle(oApplicationWindow.pStatusBarStyle);
 //	}
 }

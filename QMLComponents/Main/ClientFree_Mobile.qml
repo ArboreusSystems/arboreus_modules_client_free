@@ -17,7 +17,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 
 // Application includes
-
+import "qrc:/ClentFree/Modules/QMLComponents/Content";
 
 // Application
 ApplicationWindow {
@@ -80,6 +80,16 @@ ApplicationWindow {
 			anchors.bottom: parent.bottom;
 			anchors.left: oPaddingLeft.right;
 			anchors.right: oPaddingRight.left;
+		}
+
+		AContentWrapperMobile {
+
+			id: oContentWrapper;
+			anchors.top: oPaddingTop.bottom;
+			anchors.bottom: oPaddingBottom.top;
+			anchors.left: oPaddingLeft.right;
+			anchors.right: oPaddingRight.left;
+			color: "yellow";
 		}
 
 //		SScreenContentWrapper {

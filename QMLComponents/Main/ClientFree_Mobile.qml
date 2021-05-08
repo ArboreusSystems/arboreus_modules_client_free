@@ -94,7 +94,7 @@ ApplicationWindow {
 			anchors.bottom: oPaddingBottom.top;
 			anchors.left: oPaddingLeft.right;
 			anchors.right: oPaddingRight.left;
-			color: "yellow";
+			color: AColors.mWhite();
 		}
 
 //		SScreenContentWrapper {

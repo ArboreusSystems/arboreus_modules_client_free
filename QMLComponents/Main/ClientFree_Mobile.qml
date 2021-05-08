@@ -41,6 +41,8 @@ ApplicationWindow {
 		oApplicationWindow.mSetSafeAreaInsets();
 
 		ADevice.mSetStatusBarStyle(ADeviceEnums.Light);
+
+		console.log("FontFamily:",AFonts.mFontFamily());
 	}
 
 	Rectangle {

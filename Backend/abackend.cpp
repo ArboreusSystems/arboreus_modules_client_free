@@ -247,4 +247,5 @@ void ABackend::mInitUIHandler(void) {
 
 	pUIHandler->mInit();
 	pRootContext->setContextProperty("AFonts",pUIHandler->pFonts);
+	pRootContext->setContextProperty("AColors",pUIHandler->pColors);
 }

@@ -79,6 +79,9 @@ void ABackend::mInit(
 
 	pRootContext->setContextProperty("ABackend",this);
 
+	pConfigGlobal = new AConfigGlobal(pEngine);
+	pRootContext->setContextProperty("AConfigGlobal",pConfigGlobal);
+
 	pConfigMobile = new AConfigMobile(pEngine);
 	pRootContext->setContextProperty("AConfigMobile",pConfigMobile);
 

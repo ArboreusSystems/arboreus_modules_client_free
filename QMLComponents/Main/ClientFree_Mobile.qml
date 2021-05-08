@@ -15,6 +15,7 @@
 // System includes
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import Arboreus 1.0
 
 // Application includes
 import "qrc:/ClentFree/Modules/QMLComponents/Content";
@@ -38,6 +39,8 @@ ApplicationWindow {
 	Component.onCompleted: {
 
 		oApplicationWindow.mSetSafeAreaInsets();
+
+		ADevice.mSetStatusBarStyle(ADeviceEnums.Light);
 	}
 
 	Rectangle {

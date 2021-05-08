@@ -23,6 +23,7 @@
 #include <QQmlContext>
 
 // Application includes
+#include <aconfigglobal.h>
 #include <aconfigmobile.h>
 #include <alogger.h>
 #include <aproperties.h>
@@ -42,6 +43,7 @@ class ABackend : public QObject {
 
 	public:
 
+		AConfigGlobal* pConfigGlobal = nullptr;
 		AConfigMobile* pConfigMobile = nullptr;
 		AProperties* pProperties = nullptr;
 		ALogger* pLogger = nullptr;

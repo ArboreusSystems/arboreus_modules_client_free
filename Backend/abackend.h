@@ -21,6 +21,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
+#include <QScreen>
 
 // Application includes
 #include <aconfigglobal.h>
@@ -56,6 +57,7 @@ class ABackend : public QObject {
 		QGuiApplication* pGuiApplication = nullptr;
 		QQmlApplicationEngine* pEngine = nullptr;
 		QQmlContext* pRootContext = nullptr;
+		QScreen* pScreen = nullptr;
 
 		static ABackend& mInstance(void);
 		void mInit(

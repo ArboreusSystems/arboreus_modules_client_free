@@ -43,6 +43,16 @@ ApplicationWindow {
 		ADevice.mSetStatusBarStyle(ADeviceEnums.Light);
 
 		console.log("FontFamily:",AFonts.mFontFamily());
+		console.log("Device type:",ADevice.mType());
+	}
+
+	Connections {
+
+		target: ADevice;
+		function onSgOrientationChanged(inOrientation) {
+
+			console.log("Orientation:",inOrientation);
+		}
 	}
 
 	Rectangle {

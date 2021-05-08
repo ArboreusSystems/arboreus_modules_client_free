@@ -77,6 +77,14 @@ void ABackend::mInit(
 	pEngine = inEngine;
 	pRootContext = inRootContext;
 
+	pScreen = QGuiApplication::primaryScreen();
+	pScreen->setOrientationUpdateMask(
+		Qt::PortraitOrientation |
+		Qt::LandscapeOrientation |
+		Qt::InvertedPortraitOrientation |
+		Qt::InvertedLandscapeOrientation
+	);
+
 	pRootContext->setContextProperty("ABackend",this);
 
 	pConfigGlobal = new AConfigGlobal(pEngine);

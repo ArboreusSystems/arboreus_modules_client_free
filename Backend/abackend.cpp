@@ -131,6 +131,7 @@ void ABackend::mInitServices(void) {
 	pSettings = new ASettings(pEngine);
 	pNetwork = new ANetwork(pEngine);
 	pDevice = new ADevice(pEngine);
+	pUIHandler = new AUIHandler(pEngine);
 
 	QObject::connect(
 		pSettings,&ASettings::sgInitiated,
@@ -146,6 +147,12 @@ void ABackend::mInitServices(void) {
 	);
 	QObject::connect(
 		pDevice,&ADevice::sgInitiated,
+		[this](){
+			this->mInitUIHandler();
+		}
+	);
+	QObject::connect(
+		pUIHandler,&AUIHandler::sgInitiated,
 		[this](){
 			_A_DEBUG << "AClientBackend services initiated";
 			emit this->sgInitiated();
@@ -226,4 +233,18 @@ void ABackend::mInitDevice(void) {
 
 	pDevice->mInit();
 	pRootContext->setContextProperty("ADevice",pDevice);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ABackend::mInitUIHandler(void) {
+
+	pUIHandler->mInit();
+	pRootContext->setContextProperty("AFonts",pUIHandler->pFonts);
 }

@@ -254,6 +254,7 @@ void ABackend::mInitDevice(void) {
 void ABackend::mInitUIHandler(void) {
 
 	pUIHandler->mInit();
+	pRootContext->setContextProperty("AUIHandler",pUIHandler);
 	pRootContext->setContextProperty("AFonts",pUIHandler->pFonts);
 	pRootContext->setContextProperty("AColors",pUIHandler->pColors);
 }

@@ -15,6 +15,7 @@
 // System includes
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Window 2.15
 import Arboreus 1.0
 
 // Application includes
@@ -25,8 +26,8 @@ ApplicationWindow {
 
 	property string pText: qsTr("Main.Application.Title");
 	property string pColorSafeArea: "green";
-	property string pColorBackground: "blue";
-	property var pStatusBarStyle: 0;
+	property string pColorBackground: AColors.mWhite();
+	property var pStatusBarStyle: ADeviceEnums.Light;
 
 	id: oApplicationWindow;
 	flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint;
@@ -34,16 +35,11 @@ ApplicationWindow {
 	height: AProperties.mIsDesktop() ? AConfigMobile.mDesktopUIHeight() : maximumHeight;
 	visible: true;
 	title: oApplicationWindow.pText;
-	color: "white";
+	color: AColors.mBlack();
 
 	Component.onCompleted: {
 
 		oApplicationWindow.mSetSafeAreaInsets();
-
-		ADevice.mSetStatusBarStyle(ADeviceEnums.Light);
-
-		console.log("FontFamily:",AFonts.mFontFamily());
-		console.log("Device type:",ADevice.mType());
 	}
 
 	Connections {
@@ -51,7 +47,20 @@ ApplicationWindow {
 		target: ADevice;
 		function onSgOrientationChanged(inOrientation) {
 
-			console.log("Orientation:",inOrientation);
+			oApplicationWindow.mSetSafeAreaInsets();
+
+			if (ADevice.mIsLandscape()) {
+				oPaddingLeft.color = AColors.mTransparent();
+				oPaddingRight.color = AColors.mTransparent();
+			} else {
+				if (inOrientation === Qt.InvertedPortraitOrientation) {
+					oPaddingLeft.color = AColors.mTransparent();
+					oPaddingRight.color = AColors.mTransparent();
+				} else {
+					oPaddingLeft.color = oApplicationWindow.pColorSafeArea;
+					oPaddingRight.color = oApplicationWindow.pColorSafeArea;
+				}
+			}
 		}
 	}
 
@@ -60,11 +69,12 @@ ApplicationWindow {
 		id: oApplicationWindowWrapper;
 		width: parent.width;
 		height: parent.height;
+		color: AColors.mTransparent();
 
 		Rectangle {
 
 			id: oPaddingLeft;
-			color: oApplicationWindow.pColorSafeArea;
+			color: AColors.mTransparent();
 			height: parent.height;
 			anchors.top: parent.top;
 			anchors.left: parent.left;
@@ -73,7 +83,7 @@ ApplicationWindow {
 		Rectangle {
 
 			id: oPaddingRight;
-			color: oApplicationWindow.pColorSafeArea;
+			color: AColors.mTransparent();
 			height: parent.height;
 			anchors.top: parent.top;
 			anchors.right: parent.right;
@@ -104,34 +114,24 @@ ApplicationWindow {
 			anchors.bottom: oPaddingBottom.top;
 			anchors.left: oPaddingLeft.right;
 			anchors.right: oPaddingRight.left;
-			color: AColors.mWhite();
+			color: AColors.mTransparent();
+
+			Component.onCompleted: {
+
+				let oSafeAreaHeightOffset = oPaddingTop.height + oPaddingBottom.height;
+				oContentWrapper.height = oApplicationWindowWrapper.height - oSafeAreaHeightOffset;
+
+				let oSafeAreaWidthOffset = oPaddingLeft.width + oPaddingRight.height;
+				oContentWrapper.width = oApplicationWindowWrapper.width - oSafeAreaWidthOffset;
+
+				Qt.createQmlObject(
+					AUIHandler.mComponentContent("AContentMobile"),
+					oContentWrapper,"oContent"
+				);
+
+				oApplicationWindow.mSetStatusBarStyleDefault();
+			}
 		}
-
-//		SScreenContentWrapper {
-
-//			id: oContentWrapper;
-//			anchors.top: oPaddingTop.bottom;
-//			anchors.bottom: oPaddingBottom.top;
-//			anchors.left: oPaddingLeft.right;
-//			anchors.right: oPaddingRight.left;
-//			color: SUISkin.mColorGreyDarkString();
-
-//			Component.onCompleted: {
-
-//				let oSafeAreaHeightOffset = oPaddingTop.height + oPaddingBottom.height;
-//				oContentWrapper.height = oApplicationWindowWrapper.height - oSafeAreaHeightOffset;
-
-//				let oSafeAreaWidthOffset = oPaddingLeft.width + oPaddingRight.height;
-//				oContentWrapper.width = oApplicationWindowWrapper.width - oSafeAreaWidthOffset;
-
-//				Qt.createQmlObject(
-//					SUIHandler.mComponentScreen("SScreenContent"),
-//					oContentWrapper,"oContent"
-//				);
-
-//				oApplicationWindow.mSetStatusBarStyleDefault();
-//			}
-//		}
 	}
 
 	function mSetSafeAreaInsets() {
@@ -144,9 +144,9 @@ ApplicationWindow {
 		oPaddingRight.width = oSafeAreaInsets.Right;
 	}
 
-//	function mSetStatusBarStyleDefault() {
+	function mSetStatusBarStyleDefault() {
 
-//		oApplicationWindow.pStatusBarStyle = SDEVICE.StatusBarStyle.Light;
-//		SDevice.mSetStatusBarStyle(oApplicationWindow.pStatusBarStyle);
-//	}
+		oApplicationWindow.pStatusBarStyle = ADeviceEnums.Light;
+		ADevice.mSetStatusBarStyle(oApplicationWindow.pStatusBarStyle);
+	}
 }

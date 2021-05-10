@@ -2,5 +2,9 @@
     <qresource prefix="/ClentFree/Modules/QMLComponents">
         <file>Main/ClientFree_Mobile.qml</file>
         <file>Content/AContentWrapperMobile.qml</file>
+        <file>Templates/AScreenContentTemplate.qml</file>
+        <file>Content/AContentMobile.qml</file>
+        <file>Screens/AScreenTest.qml</file>
+        <file>Templates/AScreenTemplate.qml</file>
     </qresource>
 </RCC>

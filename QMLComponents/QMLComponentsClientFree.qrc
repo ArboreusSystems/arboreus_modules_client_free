@@ -6,5 +6,7 @@
         <file>Content/AContentMobile.qml</file>
         <file>Screens/AScreenTest.qml</file>
         <file>Templates/AScreenTemplate.qml</file>
+        <file>Screens/AScreenLogin.qml</file>
+        <file>Screens/AScreenMainMenu.qml</file>
     </qresource>
 </RCC>

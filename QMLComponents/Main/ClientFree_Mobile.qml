@@ -26,7 +26,7 @@ ApplicationWindow {
 
 	property string pText: qsTr("Main.Application.Title");
 	property string pColorSafeArea: "green";
-	property string pColorBackground: AColors.mWhite();
+	property string pColorBackground: AColors.mGetString("White");
 	property var pStatusBarStyle: ADeviceEnums.Light;
 
 	id: oApplicationWindow;
@@ -35,7 +35,7 @@ ApplicationWindow {
 	height: AProperties.mIsDesktop() ? AUIConfig.mDesktopUIHeight() : maximumHeight;
 	visible: true;
 	title: oApplicationWindow.pText;
-	color: AColors.mBlack();
+	color: AColors.mGetString("Black");
 
 	Component.onCompleted: {
 

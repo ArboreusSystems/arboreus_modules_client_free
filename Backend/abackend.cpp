@@ -29,7 +29,7 @@ using namespace ARB;
 
 ABackend::ABackend(QObject *parent) : QObject(parent) {
 
-	_A_DEBUG << "AClientBackend created";
+	_A_DEBUG << "ABackend created";
 }
 
 
@@ -42,7 +42,7 @@ ABackend::ABackend(QObject *parent) : QObject(parent) {
 
 ABackend::~ABackend(void) {
 
-	_A_DEBUG << "AClientBackend deleted";
+	_A_DEBUG << "ABackend deleted";
 }
 
 
@@ -70,12 +70,15 @@ ABackend& ABackend::mInstance(void) {
 void ABackend::mInit(
 	QGuiApplication* inGuiApplication,
 	QQmlApplicationEngine* inEngine,
-	QQmlContext* inRootContext
+	QQmlContext* inRootContext,
+	QObject* inApplicationConfig
 ) {
 
 	pGuiApplication = inGuiApplication;
 	pEngine = inEngine;
 	pRootContext = inRootContext;
+	pApplicationConfig = inApplicationConfig;
+	pConfig = qobject_cast<ABackendConfig*>(pApplicationConfig);
 
 	pScreen = QGuiApplication::primaryScreen();
 	pScreen->setOrientationUpdateMask(
@@ -87,13 +90,20 @@ void ABackend::mInit(
 
 	pRootContext->setContextProperty("ABackend",this);
 
-	pConfigGlobal = new AConfigGlobal(pEngine);
-	pRootContext->setContextProperty("AConfigGlobal",pConfigGlobal);
-
-	pConfigMobile = new AConfigMobile(pEngine);
-	pRootContext->setContextProperty("AConfigMobile",pConfigMobile);
-
 	this->mInitCore();
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+const char* ABackend::mModuleName(void) {
+
+	return pConfig->ABackendConfig_ModuleName();
 }
 
 
@@ -118,7 +128,7 @@ void ABackend::mInitCore(void) {
 	QObject::connect(
 		pLogger,&ALogger::sgInitiated,
 		[this](){
-			_A_DEBUG << "AClientBackend core initiated";
+			_A_DEBUG << "ABackend core initiated";
 			this->mInitServices();
 		}
 	);
@@ -162,7 +172,7 @@ void ABackend::mInitServices(void) {
 	QObject::connect(
 		pUIHandler,&AUIHandler::sgInitiated,
 		[this](){
-			_A_DEBUG << "AClientBackend services initiated";
+			_A_DEBUG << "ABackend services initiated";
 			emit this->sgInitiated();
 		}
 	);
@@ -180,9 +190,6 @@ void ABackend::mInitServices(void) {
 
 void ABackend::mInitProperties(void) {
 
-	pProperties->mSetNameApplication("Storage Client");
-	pProperties->mSetNameDomain("arboreus.systems");
-	pProperties->mSetNameOrganisation("Arboreus Systems");
 	pProperties->mInit();
 	pRootContext->setContextProperty("AProperties",pProperties);
 }
@@ -257,4 +264,5 @@ void ABackend::mInitUIHandler(void) {
 	pRootContext->setContextProperty("AUIHandler",pUIHandler);
 	pRootContext->setContextProperty("AFonts",pUIHandler->pFonts);
 	pRootContext->setContextProperty("AColors",pUIHandler->pColors);
+	pRootContext->setContextProperty("AUIConfig",pUIHandler->pConfig);
 }

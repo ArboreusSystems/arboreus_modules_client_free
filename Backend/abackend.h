@@ -24,8 +24,7 @@
 #include <QScreen>
 
 // Application includes
-#include <aconfigglobal.h>
-#include <aconfigmobile.h>
+#include <abackendconfig.h>
 #include <alogger.h>
 #include <aproperties.h>
 #include <asettings.h>
@@ -45,8 +44,7 @@ class ABackend : public QObject {
 
 	public:
 
-		AConfigGlobal* pConfigGlobal = nullptr;
-		AConfigMobile* pConfigMobile = nullptr;
+		QObject* pApplicationConfig = nullptr;
 		AProperties* pProperties = nullptr;
 		ALogger* pLogger = nullptr;
 		ASettings* pSettings = nullptr;
@@ -63,8 +61,10 @@ class ABackend : public QObject {
 		void mInit(
 			QGuiApplication* inGuiApplication = nullptr,
 			QQmlApplicationEngine* inEngine = nullptr,
-			QQmlContext* inRootContext = nullptr
+			QQmlContext* inRootContext = nullptr,
+			QObject* inApplicationConfig = nullptr
 		);
+		const char* mModuleName(void);
 
 	signals:
 
@@ -73,6 +73,7 @@ class ABackend : public QObject {
 	private:
 
 		QMap<QString,bool> pModules = {};
+		ABackendConfig* pConfig = nullptr;
 
 		explicit ABackend(QObject *parent = nullptr);
 		virtual ~ABackend(void);

@@ -31,8 +31,8 @@ ApplicationWindow {
 
 	id: oApplicationWindow;
 	flags: Qt.Window | Qt.MaximizeUsingFullscreenGeometryHint;
-	width: AProperties.mIsDesktop() ? AConfigMobile.mDesktopUIWidth() : maximumWidth;
-	height: AProperties.mIsDesktop() ? AConfigMobile.mDesktopUIHeight() : maximumHeight;
+	width: AProperties.mIsDesktop() ? AUIConfig.mDesktopUIWidth() : maximumWidth;
+	height: AProperties.mIsDesktop() ? AUIConfig.mDesktopUIHeight() : maximumHeight;
 	visible: true;
 	title: oApplicationWindow.pText;
 	color: AColors.mBlack();

@@ -121,13 +121,13 @@ void ABackend::mInitCore(void) {
 
 	QObject::connect(
 		pProperties,&AProperties::sgInitiated,
-		[this](){
+		this,[this](){
 			this->mInitLogger();
 		}
 	);
 	QObject::connect(
 		pLogger,&ALogger::sgInitiated,
-		[this](){
+		this,[this](){
 			_A_DEBUG << "ABackend core initiated";
 			this->mInitServices();
 		}
@@ -153,25 +153,25 @@ void ABackend::mInitServices(void) {
 
 	QObject::connect(
 		pSettings,&ASettings::sgInitiated,
-		[this](){
+		this,[this](){
 			this->mInitNetwork();
 		}
 	);
 	QObject::connect(
 		pNetwork,&ANetwork::sgInitiated,
-		[this](){
+		this,[this](){
 			this->mInitDevice();
 		}
 	);
 	QObject::connect(
 		pDevice,&ADevice::sgInitiated,
-		[this](){
+		this,[this](){
 			this->mInitUIHandler();
 		}
 	);
 	QObject::connect(
 		pUIHandler,&AUIHandler::sgInitiated,
-		[this](){
+		this,[this](){
 			_A_DEBUG << "ABackend services initiated";
 			emit this->sgInitiated();
 		}

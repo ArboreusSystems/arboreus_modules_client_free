@@ -75,7 +75,7 @@ class ABackend : public QObject {
 		QMap<QString,bool> pModules = {};
 		ABackendConfig* pConfig = nullptr;
 
-		explicit ABackend(QObject *parent = nullptr);
+		explicit ABackend(QObject* parent = nullptr);
 		virtual ~ABackend(void);
 		Q_DISABLE_COPY(ABackend)
 

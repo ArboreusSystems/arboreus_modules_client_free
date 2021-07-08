@@ -1,3 +1,6 @@
 <RCC>
-    <qresource prefix="/ClentFree/Modules/QMLComponents"/>
+    <qresource prefix="/ClentFree/Modules/QMLComponents">
+        <file>Headers/AHeaderScreenMain.qml</file>
+    </qresource>
+    <qresource prefix="/"/>
 </RCC>

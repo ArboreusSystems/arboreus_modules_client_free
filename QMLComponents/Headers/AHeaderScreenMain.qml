@@ -26,8 +26,6 @@ AHeaderTemplate {
 
 	id: oRoot;
 	color: AColors.mGetString("GreyDarkest");
-	width: parent.width;
-	height: 75;
 	pMargin: 10;
 
 	pLeftBlock: AHeaderLeftBlockTemplate {

@@ -6,6 +6,10 @@
         <file>Templates/AButtonHeaderTemplate.qml</file>
         <file>Templates/AButtonActionTemplate.qml</file>
         <file>Headers/AHeaderScreenMenu.qml</file>
+        <file>Headers/AHeaderScreenStorage.qml</file>
+        <file>Buttons/AButtonStorageMenu.qml</file>
+        <file>Templates/AButtonHeaderServiceTemplate.qml</file>
+        <file>Buttons/AButtonStorageExit.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

@@ -19,10 +19,12 @@ import QtQuick 2.15
 
 // Application paths
 import "qrc:/ModulesFree/QMLComponents/Templates/Headers";
-
+import "qrc:/ClentFree/Modules/QMLComponents/Buttons"
 
 // Component
 AHeaderTemplate {
+
+	property alias pLabelText: oLabel.text;
 
 	id: oRoot;
 	color: AColors.mGetString("GreyDarkest");
@@ -32,30 +34,17 @@ AHeaderTemplate {
 
 		AHeaderLabelTemplate {
 
-			text: "Header text";
+			id: oLabel;
+			text: "Storages";
 		}
-
-//		AHeaderButtonTemplate {
-
-//			text: "1";
-//		}
-
-//		AHeaderButtonTemplate {
-
-//			text: "2";
-//		}
 	}
 
 	pRightBlock: AHeaderRightBlockTemplate {
 
-		AHeaderButtonTemplate {
+		AButtonHamburger {
 
-			text: "3";
-		}
+			id: oButtonHamburger;
 
-		AHeaderButtonTemplate {
-
-			text: "4";
 		}
 	}
 }

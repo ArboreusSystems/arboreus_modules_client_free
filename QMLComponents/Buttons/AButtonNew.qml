@@ -26,6 +26,6 @@ import "qrc:/ClentFree/Modules/QMLComponents/Templates";
 AButtonActionTemplate {
 
 	id: oRoot;
+	objectName: "ButtonNew";
 	text: "+";
-	pID: "ButtonNew";
 }

@@ -26,5 +26,14 @@ AButtonHeaderTemplate {
 
 	id: oRoot;
 	text: "H";
-	pID: "ButtonHamburger";
+	objectName: "ButtonHamburger";
+
+	onClicked: {
+
+		if (oStackView.currentItem.objectName == "AScreenMenu") {
+			oStackView.pop();
+		} else {
+			oStackView.push(oScreenMenu);
+		}
+	}
 }

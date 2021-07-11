@@ -5,6 +5,7 @@
         <file>Buttons/AButtonHamburger.qml</file>
         <file>Templates/AButtonHeaderTemplate.qml</file>
         <file>Templates/AButtonActionTemplate.qml</file>
+        <file>Headers/AHeaderScreenMenu.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

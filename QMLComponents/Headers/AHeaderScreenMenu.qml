@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 08/07/2021 at 13:10:12
+	\li @created 11/07/2021 at 14:20:51
 	\endlist
 */
 // ----------------------------------------------------------
@@ -36,7 +36,7 @@ AHeaderTemplate {
 		AHeaderLabelTemplate {
 
 			id: oLabel;
-			text: "Storages";
+			text: "Main menu";
 		}
 	}
 

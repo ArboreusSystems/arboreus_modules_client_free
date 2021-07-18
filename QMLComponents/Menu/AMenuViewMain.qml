@@ -17,21 +17,24 @@ import QtQuick 2.15
 
 // Application includes
 
+// Application paths
+import "qrc:/ClentFree/Modules/QMLComponents/Menu/ViewMain";
+
 
 // Component
 AMenuView {
 
 	id: oRoot;
-	width: oApplicationMenu.width;
 	spacing: 5;
 
-	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
-	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
+	AMenuGroupSettings {id: oMenuGroupSettings;}
+
+//	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
+//	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
+//	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
+//	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
+//	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
+//	Rectangle {	width: parent.width; height: 50; color: AColors.mGetString("Green");}
 
 	Component.onCompleted: {
 

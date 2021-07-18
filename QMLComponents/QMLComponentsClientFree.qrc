@@ -13,6 +13,11 @@
         <file>Menu/AMenuView.qml</file>
         <file>Menu/AMenuViewMain.qml</file>
         <file>Buttons/AButtonBackHeader.qml</file>
+        <file>Menu/AMenuItem.qml</file>
+        <file>Menu/ViewMain/AMenuGroupSettings.qml</file>
+        <file>Menu/AMenuGroup.qml</file>
+        <file>Text/AText.qml</file>
+        <file>Menu/AMenuViewSettings.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

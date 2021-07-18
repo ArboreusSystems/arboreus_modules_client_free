@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 18/07/2021 at 15:48:52
+	\li @created 18/07/2021 at 18:15:13
 	\endlist
 */
 // ----------------------------------------------------------
@@ -18,12 +18,12 @@ import QtQuick 2.15
 // Application includes
 
 // Application paths
-import "qrc:/ModulesFree/QMLComponents/Templates/Menu";
+import "qrc:/ModulesFree/QMLComponents/Templates/Text";
 
 
 // Component
-AMenuViewTemplate {
+ATextTemplate {
 
 	id: oRoot;
-	width: oApplicationMenu.width;
+	font.family: AFonts.mFontFamily();
 }

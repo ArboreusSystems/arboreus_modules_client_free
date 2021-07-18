@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 18/07/2021 at 15:48:52
+	\li @created 18/07/2021 at 17:46:51
 	\endlist
 */
 // ----------------------------------------------------------
@@ -22,8 +22,9 @@ import "qrc:/ModulesFree/QMLComponents/Templates/Menu";
 
 
 // Component
-AMenuViewTemplate {
+AMenuItemTemplate {
 
 	id: oRoot;
 	width: oApplicationMenu.width;
+	color: AColors.mGetString("Orange");
 }

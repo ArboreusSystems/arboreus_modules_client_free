@@ -10,6 +10,9 @@
         <file>Buttons/AButtonStorageMenu.qml</file>
         <file>Templates/AButtonHeaderServiceTemplate.qml</file>
         <file>Buttons/AButtonStorageExit.qml</file>
+        <file>Menu/AMenuView.qml</file>
+        <file>Menu/AMenuViewMain.qml</file>
+        <file>Buttons/AButtonBackHeader.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

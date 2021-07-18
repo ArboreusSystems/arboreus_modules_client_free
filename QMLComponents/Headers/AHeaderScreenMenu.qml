@@ -25,18 +25,15 @@ import "qrc:/ClentFree/Modules/QMLComponents/Buttons"
 // Component
 AHeaderTemplate {
 
-	property alias pLabelText: oLabel.text;
-
 	id: oRoot;
 	color: AColors.mGetString("GreyDarkest");
 	pMargin: 10;
 
 	pLeftBlock: AHeaderLeftBlockTemplate {
 
-		AHeaderLabelTemplate {
+		AButtonBackHeader {
 
-			id: oLabel;
-			text: "Main menu";
+			id: oButtonBack;
 		}
 	}
 
@@ -46,5 +43,12 @@ AHeaderTemplate {
 
 			id: oButtonHamburger;
 		}
+	}
+
+	function mSetBackButton(inVisisble,inText,inBackViewComponent) {
+
+		oButtonBack.pBackViewComponent = inBackViewComponent;
+		oButtonBack.pLabelText = inText;
+		oButtonBack.visible = inVisisble;
 	}
 }

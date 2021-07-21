@@ -18,6 +18,11 @@
         <file>Menu/AMenuGroup.qml</file>
         <file>Text/AText.qml</file>
         <file>Menu/AMenuViewSettings.qml</file>
+        <file>Headers/AHeaderScreenNewStorage.qml</file>
+        <file>Delegates/AModelElementDelegate.qml</file>
+        <file>Inputs/AInputText.qml</file>
+        <file>Views/NewStorage/AViewNewStorageProperties.qml</file>
+        <file>Views/NewStorage/AViewNewStorageModel.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

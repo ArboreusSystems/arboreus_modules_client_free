@@ -150,6 +150,7 @@ void ABackend::mInitServices(void) {
 	pNetwork = new ANetwork(pEngine);
 	pDevice = new ADevice(pEngine);
 	pUIHandler = new AUIHandler(pEngine);
+	pApplication = new AApplication(pEngine);
 
 	QObject::connect(
 		pSettings,&ASettings::sgInitiated,
@@ -172,10 +173,17 @@ void ABackend::mInitServices(void) {
 	QObject::connect(
 		pUIHandler,&AUIHandler::sgInitiated,
 		this,[this](){
+			this->mInitApplication();
+		}
+	);
+	QObject::connect(
+		pApplication,&AApplication::sgInitiated,
+		this,[this](){
 			_A_DEBUG << "ABackend services initiated";
 			emit this->sgInitiated();
 		}
 	);
+
 
 	this->mInitSettings();
 }
@@ -265,4 +273,18 @@ void ABackend::mInitUIHandler(void) {
 	pRootContext->setContextProperty("AFonts",pUIHandler->pFonts);
 	pRootContext->setContextProperty("AColors",pUIHandler->pColors);
 	pRootContext->setContextProperty("AUIConfig",pUIHandler->pConfig);
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+void ABackend::mInitApplication(void) {
+
+	pApplication->mInit();
+	pRootContext->setContextProperty("AApplication",pApplication);
 }

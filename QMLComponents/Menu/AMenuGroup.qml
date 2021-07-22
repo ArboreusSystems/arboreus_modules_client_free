@@ -28,5 +28,4 @@ AMenuGroupTemplate {
 	objectName: "MenuGroupSettings";
 	width: oApplicationMenu.width;
 	height: 50;
-//	pMargin: oApplicationWindow.pMargin;
 }

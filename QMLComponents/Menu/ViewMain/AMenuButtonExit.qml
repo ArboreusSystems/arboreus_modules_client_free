@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 18/07/2021 at 15:51:56
+	\li @created 22/07/2021 at 17:34:25
 	\endlist
 */
 // ----------------------------------------------------------
@@ -17,21 +17,20 @@ import QtQuick 2.15
 
 // Application includes
 
-// Application paths
-import "qrc:/ClentFree/Modules/QMLComponents/Menu/ViewMain";
+// AApplication paths
+import "qrc:/ClentFree/Modules/QMLComponents/Menu/";
 
 
 // Component
-AMenuView {
+AMenuButton {
 
 	id: oRoot;
-	spacing: 5;
+	objectName: "MenuButtonExit";
 
-	AMenuGroupSettings {id: oMenuGroupSettings;}
-	AMenuButtonExit {id: oMenuButtonExit;}
+	pLabelText: "Exit";
 
-	Component.onCompleted: {
+	function mOnClicked() {
 
-		oHeaderScreenMenu.mSetBackButton(false,"",null);
+		AApplication.mExit();
 	}
 }

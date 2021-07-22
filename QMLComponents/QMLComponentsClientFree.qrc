@@ -25,6 +25,9 @@
         <file>Buttons/Screen/AButtonScreenNew.qml</file>
         <file>Buttons/Header/AButtonHeaderBackScreen.qml</file>
         <file>Buttons/Header/AButtonHeaderCancel.qml</file>
+        <file>Headers/AHeaderScreenNewRecord.qml</file>
+        <file>Menu/ViewMain/AMenuButtonExit.qml</file>
+        <file>Menu/AMenuButton.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

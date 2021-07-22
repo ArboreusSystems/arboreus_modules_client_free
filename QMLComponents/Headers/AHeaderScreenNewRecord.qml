@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 21/07/2021 at 12:09:33
+	\li @created 22/07/2021 at 14:47:30
 	\endlist
 */
 // ----------------------------------------------------------
@@ -46,7 +46,7 @@ AHeaderTemplate {
 		AHeaderLabelTemplate {
 
 			id: oLabel;
-			text: "Create new Storage";
+			text: "Create new Record";
 		}
 	}
 }

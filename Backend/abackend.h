@@ -31,6 +31,7 @@
 #include <anetwork.h>
 #include <adevice.h>
 #include <auihandler.h>
+#include <aapplication.h>
 
 // Constants and definitions
 
@@ -51,6 +52,7 @@ class ABackend : public QObject {
 		ANetwork* pNetwork = nullptr;
 		ADevice* pDevice = nullptr;
 		AUIHandler* pUIHandler = nullptr;
+		AApplication* pApplication = nullptr;
 
 		QGuiApplication* pGuiApplication = nullptr;
 		QQmlApplicationEngine* pEngine = nullptr;
@@ -87,6 +89,7 @@ class ABackend : public QObject {
 		void mInitNetwork(void);
 		void mInitDevice(void);
 		void mInitUIHandler(void);
+		void mInitApplication(void);
 };
 
 } // namespace ARB

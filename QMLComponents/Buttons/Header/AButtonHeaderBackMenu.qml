@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 10/07/2021 at 13:09:31
+	\li @created 22/07/2021 at 13:08:49
 	\endlist
 */
 // ----------------------------------------------------------
@@ -18,22 +18,23 @@ import QtQuick 2.15
 // Application includes
 
 // Application paths
-import "qrc:/ClentFree/Modules/QMLComponents/Templates";
+import "qrc:/ModulesFree/QMLComponents/Templates/Buttons";
 
 
 // Component
-AButtonHeaderTemplate {
+AButtonBackHeaderTemplate {
+
+	property Item pBackViewComponent: undefined;
 
 	id: oRoot;
-	text: "H";
-	objectName: "ButtonHamburger";
+	objectName: "HeaderBackMenuButton";
 
 	onClicked: {
 
-		if (oStackView.currentItem.objectName == "AScreenMenu") {
-			oStackView.pop();
+		if (oRoot.pBackViewComponent) {
+			oApplicationMenuLoader.sourceComponent = oRoot.pBackViewComponent;
 		} else {
-			oStackView.push(oScreenMenu);
+			console.error("No defined back view item");
 		}
 	}
 }

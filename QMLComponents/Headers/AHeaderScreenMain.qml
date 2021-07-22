@@ -19,7 +19,7 @@ import QtQuick 2.15
 
 // Application paths
 import "qrc:/ModulesFree/QMLComponents/Templates/Headers";
-import "qrc:/ClentFree/Modules/QMLComponents/Buttons"
+import "qrc:/ClentFree/Modules/QMLComponents/Buttons/Header";
 
 
 // Component
@@ -42,10 +42,9 @@ AHeaderTemplate {
 
 	pRightBlock: AHeaderRightBlockTemplate {
 
-		AButtonHamburger {
+		AButtonHeaderHumburger {
 
 			id: oButtonHamburger;
-
 		}
 	}
 }

@@ -31,5 +31,4 @@ Column {
 	Rectangle {color: "red"; width: parent.width; height: 60;}
 	Rectangle {color: "red"; width: parent.width; height: 60;}
 	Rectangle {color: "red"; width: parent.width; height: 60;}
-	Rectangle {color: "red"; width: parent.width; height: 60;}
 }

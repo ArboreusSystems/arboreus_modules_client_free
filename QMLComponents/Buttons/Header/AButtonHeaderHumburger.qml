@@ -7,7 +7,7 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 11/07/2021 at 18:09:24
+	\li @created 22/07/2021 at 13:04:34
 	\endlist
 */
 // ----------------------------------------------------------
@@ -24,14 +24,16 @@ import "qrc:/ClentFree/Modules/QMLComponents/Templates";
 // Component
 AButtonHeaderTemplate {
 
-	required property Item pHeader;
-
 	id: oRoot;
-	text: "S";
-	objectName: "ButtonStorageMenu";
+	text: "H";
+	objectName: "ButtonHeaderHamburger";
 
 	onClicked: {
 
-		oRoot.pHeader.mShowStorageMenu();
+		if (oStackView.currentItem.objectName === "AScreenMenu") {
+			oStackView.pop();
+		} else {
+			oStackView.push(oScreenMenu);
+		}
 	}
 }

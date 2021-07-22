@@ -1,18 +1,13 @@
 <RCC>
     <qresource prefix="/ClentFree/Modules/QMLComponents">
         <file>Headers/AHeaderScreenMain.qml</file>
-        <file>Buttons/AButtonNew.qml</file>
-        <file>Buttons/AButtonHamburger.qml</file>
         <file>Templates/AButtonHeaderTemplate.qml</file>
         <file>Templates/AButtonActionTemplate.qml</file>
         <file>Headers/AHeaderScreenMenu.qml</file>
         <file>Headers/AHeaderScreenStorage.qml</file>
-        <file>Buttons/AButtonStorageMenu.qml</file>
         <file>Templates/AButtonHeaderServiceTemplate.qml</file>
-        <file>Buttons/AButtonStorageExit.qml</file>
         <file>Menu/AMenuView.qml</file>
         <file>Menu/AMenuViewMain.qml</file>
-        <file>Buttons/AButtonBackHeader.qml</file>
         <file>Menu/AMenuItem.qml</file>
         <file>Menu/ViewMain/AMenuGroupSettings.qml</file>
         <file>Menu/AMenuGroup.qml</file>
@@ -23,6 +18,13 @@
         <file>Inputs/AInputText.qml</file>
         <file>Views/NewStorage/AViewNewStorageProperties.qml</file>
         <file>Views/NewStorage/AViewNewStorageModel.qml</file>
+        <file>Buttons/Header/AButtonHeaderHumburger.qml</file>
+        <file>Buttons/Header/AButtonHeaderBackMenu.qml</file>
+        <file>Buttons/Header/AButtonHeaderStorageExit.qml</file>
+        <file>Buttons/Header/AButtonHeaderStorageMenu.qml</file>
+        <file>Buttons/Screen/AButtonScreenNew.qml</file>
+        <file>Buttons/Header/AButtonHeaderBackScreen.qml</file>
+        <file>Buttons/Header/AButtonHeaderCancel.qml</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

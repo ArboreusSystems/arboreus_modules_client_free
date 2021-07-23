@@ -13,3 +13,11 @@ exists($$A_PRI_MODULES_CLIENT_FREE_BACKEND) {
 } else {
 	error(No ClientFree Module Backend config file $$A_PRI_MODULES_CLIENT_FREE_BACKEND)
 }
+
+A_DIR_MODULES_CLIENT_FREE_STORAGE = $$PWD/Storage
+A_PRI_MODULES_CLIENT_FREE_STORAGE = $$A_DIR_MODULES_CLIENT_FREE_STORAGE/Storage.pri
+exists($$A_PRI_MODULES_CLIENT_FREE_STORAGE) {
+	include($$A_PRI_MODULES_CLIENT_FREE_STORAGE)
+} else {
+	error(No ClientFree Module Storage config file $$A_PRI_MODULES_CLIENT_FREE_STORAGE)
+}

@@ -18,6 +18,7 @@
 
 // System includes
 #include <QObject>
+#include <QVariantMap>
 
 // Application includes
 #include <athreadtemplate.h>
@@ -52,6 +53,14 @@ class AStorage : public AThreadTemplate<AStorageService> {
 	public slots:
 
 		void slInitiated(void);
+
+		QVariantList mStorages(void);
+
+		bool mStorageCreate(QVariantMap inProperties);
+		bool mStorageLogin(QString inStorageID);
+		bool mStorageArchive(QString inStorageID);
+		bool mStorageDelete(QString inStorageID);
+		QVariantMap mStorageInfo(QString inStorageID);
 
 	private:
 

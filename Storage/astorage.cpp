@@ -94,3 +94,93 @@ void AStorage::slInitiated(void) {
 	emit sgInitiated();
 }
 
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QVariantList AStorage::mStorages(void) {
+
+	QVariantList oOutput;
+	return oOutput;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+bool AStorage::mStorageCreate(QVariantMap inProperties) {
+
+	Q_UNUSED(inProperties)
+
+	return true;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+bool AStorage::mStorageLogin(QString inStorageID) {
+
+	Q_UNUSED(inStorageID)
+
+	return true;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+bool AStorage::mStorageArchive(QString inStorageID) {
+
+	Q_UNUSED(inStorageID)
+
+	return true;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+bool AStorage::mStorageDelete(QString inStorageID) {
+
+	Q_UNUSED(inStorageID)
+
+	return true;
+}
+
+
+// -----------
+/*!
+	\fn
+
+	Doc.
+*/
+
+QVariantMap AStorage::mStorageInfo(QString inStorageID) {
+
+	Q_UNUSED(inStorageID)
+
+	QVariantMap oOutput;
+	return oOutput;
+}
+

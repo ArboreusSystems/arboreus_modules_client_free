@@ -287,4 +287,5 @@ void ABackend::mInitApplication(void) {
 
 	pApplication->mInit();
 	pRootContext->setContextProperty("AApplication",pApplication);
+	pRootContext->setContextProperty("AConstants",pApplication->pConstants);
 }

@@ -8,34 +8,25 @@
 	\li @notice Template file classes/file.h
 	\li @copyright Arboreus (http://arboreus.systems)
 	\li @author Alexandr Kirilov (http://alexandr.kirilov.me)
-	\li @created 17/05/2021 at 19:08:58
+	\li @created 11/09/2021 at 09:35:10
 	\endlist
 */
 // ----------------------------------------------------------
-#ifndef ABACKENDCONFIG_H
-#define ABACKENDCONFIG_H
+#ifndef ASTORAGEPCH_H
+#define ASTORAGEPCH_H
+
+#if defined __cplusplus
 
 // System includes
-
-// Precompiled includes
-#include <abackendpch.h>
+#include <QObject>
+#include <QVariantMap>
 
 // Application includes
 
 // Constants and defintions
 
 // Namespace
-namespace ARB {
 
-class ABackendConfig {
+#endif
 
-	public:
-
-		virtual const char* ABackendConfig_ModuleName(void) = 0;
-};
-
-} // namespace ARB
-
-Q_DECLARE_INTERFACE(ARB::ABackendConfig,"Arboreus.ABackendConfig/1.0")
-
-#endif // ABACKENDCONFIG_H
+#endif // ASTORAGEPCH_H

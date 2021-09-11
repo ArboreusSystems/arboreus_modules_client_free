@@ -17,7 +17,9 @@
 #define ASTORAGESERVICE_H
 
 // System includes
-#include <QObject>
+
+// Precompiled includes
+#include <astoragepch.h>
 
 // Application includes
 #include <aloggerglobal.h>

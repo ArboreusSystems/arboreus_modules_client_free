@@ -17,11 +17,9 @@
 #define ABACKEND_H
 
 // System includes
-#include <QObject>
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
-#include <QQmlContext>
-#include <QScreen>
+
+// Precompiled includes
+#include <abackendpch.h>
 
 // Application includes
 #include <abackendconfig.h>

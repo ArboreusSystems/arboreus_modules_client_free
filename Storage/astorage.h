@@ -17,8 +17,9 @@
 #define ASTORAGE_H
 
 // System includes
-#include <QObject>
-#include <QVariantMap>
+
+// Precompiled includes
+#include <astoragepch.h>
 
 // Application includes
 #include <athreadtemplate.h>

@@ -14,7 +14,7 @@
 // ----------------------------------------------------------
 
 // Class header
-#include "astorage.h"
+#include "astorages.h"
 
 // Forwarded classes
 #include <abackend.h>
@@ -30,15 +30,15 @@ using namespace ARB;
 	Doc.
 */
 
-AStorage::AStorage(QObject* parent) : AThreadTemplate<AStorageService>(new AStorageService, parent) {
+AStorages::AStorages(QObject* parent) : AThreadTemplate<AStoragesService>(new AStoragesService, parent) {
 
 	QObject::connect(
-		this,&AStorage::sgInit,
-		this->mService(),&AStorageService::slInit
+		this,&AStorages::sgInit,
+		this->mService(),&AStoragesService::slInit
 	);
 	QObject::connect(
-		this->mService(),&AStorageService::sgInitiated,
-		this,&AStorage::slInitiated
+		this->mService(),&AStoragesService::sgInitiated,
+		this,&AStorages::slInitiated
 	);
 
 	_A_DEBUG << "AStorage created";
@@ -52,7 +52,7 @@ AStorage::AStorage(QObject* parent) : AThreadTemplate<AStorageService>(new AStor
 	Doc.
 */
 
-AStorage::~AStorage(void) {
+AStorages::~AStorages(void) {
 
 	_A_DEBUG << "AStorage deleted";
 }
@@ -65,7 +65,7 @@ AStorage::~AStorage(void) {
 	Doc.
 */
 
-void AStorage::mInit(void) {
+void AStorages::mInit(void) {
 
 	pBackend = &ABackend::mInstance();
 	this->start(QThread::Priority::NormalPriority);
@@ -89,7 +89,7 @@ void AStorage::mInit(void) {
 	Doc.
 */
 
-void AStorage::slInitiated(void) {
+void AStorages::slInitiated(void) {
 
 	emit sgInitiated();
 }
@@ -102,7 +102,7 @@ void AStorage::slInitiated(void) {
 	Doc.
 */
 
-QVariantList AStorage::mStorages(void) {
+QVariantList AStorages::mList(void) {
 
 	QVariantList oOutput;
 	return oOutput;
@@ -116,11 +116,12 @@ QVariantList AStorage::mStorages(void) {
 	Doc.
 */
 
-bool AStorage::mStorageCreate(QVariantMap inProperties) {
+QVariantMap AStorages::mCreate(QVariantMap inProperties) {
 
 	Q_UNUSED(inProperties)
 
-	return true;
+	QVariantMap oOutput = {};
+	return oOutput;
 }
 
 
@@ -131,11 +132,12 @@ bool AStorage::mStorageCreate(QVariantMap inProperties) {
 	Doc.
 */
 
-bool AStorage::mStorageLogin(QString inStorageID) {
+QVariantMap AStorages::mLogin(QString inStorageID) {
 
 	Q_UNUSED(inStorageID)
 
-	return true;
+	QVariantMap oOutput = {};
+	return oOutput;
 }
 
 
@@ -146,11 +148,12 @@ bool AStorage::mStorageLogin(QString inStorageID) {
 	Doc.
 */
 
-bool AStorage::mStorageArchive(QString inStorageID) {
+QVariantMap AStorages::mArchive(QString inStorageID) {
 
 	Q_UNUSED(inStorageID)
 
-	return true;
+	QVariantMap oOutput = {};
+	return oOutput;
 }
 
 
@@ -161,11 +164,12 @@ bool AStorage::mStorageArchive(QString inStorageID) {
 	Doc.
 */
 
-bool AStorage::mStorageDelete(QString inStorageID) {
+QVariantMap AStorages::mDelete(QString inStorageID) {
 
 	Q_UNUSED(inStorageID)
 
-	return true;
+	QVariantMap oOutput = {};
+	return oOutput;
 }
 
 
@@ -176,11 +180,11 @@ bool AStorage::mStorageDelete(QString inStorageID) {
 	Doc.
 */
 
-QVariantMap AStorage::mStorageInfo(QString inStorageID) {
+QVariantMap AStorages::mInfo(QString inStorageID) {
 
 	Q_UNUSED(inStorageID)
 
-	QVariantMap oOutput;
+	QVariantMap oOutput = {};
 	return oOutput;
 }
 

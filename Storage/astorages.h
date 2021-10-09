@@ -13,8 +13,8 @@
 */
 // ----------------------------------------------------------
 
-#ifndef ASTORAGE_H
-#define ASTORAGE_H
+#ifndef ASTORAGES_H
+#define ASTORAGES_H
 
 // System includes
 
@@ -23,7 +23,8 @@
 
 // Application includes
 #include <athreadtemplate.h>
-#include <astorageservice.h>
+#include <astoragesservice.h>
+#include <astoragedatamodels.h>
 
 // Constants and definitions
 
@@ -34,15 +35,15 @@ namespace ARB {
 class ABackend;
 
 // Class definitions
-class AStorage : public AThreadTemplate<AStorageService> {
+class AStorages : public AThreadTemplate<AStoragesService> {
 
 	Q_OBJECT
 
 	public:
 
-		explicit AStorage(QObject* parent = nullptr);
-		virtual ~AStorage(void);
-		Q_DISABLE_COPY(AStorage)
+		explicit AStorages(QObject* parent = nullptr);
+		virtual ~AStorages(void);
+		Q_DISABLE_COPY(AStorages)
 
 		void mInit(void);
 
@@ -55,13 +56,13 @@ class AStorage : public AThreadTemplate<AStorageService> {
 
 		void slInitiated(void);
 
-		QVariantList mStorages(void);
+		QVariantList mList(void);
 
-		bool mStorageCreate(QVariantMap inProperties);
-		bool mStorageLogin(QString inStorageID);
-		bool mStorageArchive(QString inStorageID);
-		bool mStorageDelete(QString inStorageID);
-		QVariantMap mStorageInfo(QString inStorageID);
+		QVariantMap mCreate(QVariantMap inProperties);
+		QVariantMap mLogin(QString inStorageID);
+		QVariantMap mArchive(QString inStorageID);
+		QVariantMap mDelete(QString inStorageID);
+		QVariantMap mInfo(QString inStorageID);
 
 	private:
 
@@ -70,4 +71,4 @@ class AStorage : public AThreadTemplate<AStorageService> {
 
 } // namespace ARB
 
-#endif // ASTORAGE_H
+#endif // ASTORAGES_H

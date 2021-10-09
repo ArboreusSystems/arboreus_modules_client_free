@@ -151,7 +151,7 @@ void ABackend::mInitServices(void) {
 	pDevice = new ADevice(pEngine);
 	pUIHandler = new AUIHandler(pEngine);
 	pApplication = new AApplication(pEngine);
-	pStorage = new AStorage(pEngine);
+	pStorages = new AStorages(pEngine);
 
 	QObject::connect(
 		pSettings,&ASettings::sgInitiated,
@@ -180,11 +180,11 @@ void ABackend::mInitServices(void) {
 	QObject::connect(
 		pApplication,&AApplication::sgInitiated,
 		this,[this](){
-			this->mInitStorage();
+			this->mInitStorages();
 		}
 	);
 	QObject::connect(
-		pStorage,&AStorage::sgInitiated,
+		pStorages,&AStorages::sgInitiated,
 		this,[this](){
 			_A_DEBUG << "ABackend services initiated";
 			emit this->sgInitiated();
@@ -305,8 +305,8 @@ void ABackend::mInitApplication(void) {
 	Doc.
 */
 
-void ABackend::mInitStorage(void) {
+void ABackend::mInitStorages(void) {
 
-	pStorage->mInit();
-	pRootContext->setContextProperty("AStorage",pStorage);
+	pStorages->mInit();
+	pRootContext->setContextProperty("AStorages",pStorages);
 }

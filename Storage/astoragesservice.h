@@ -13,8 +13,8 @@
 */
 // ----------------------------------------------------------
 
-#ifndef ASTORAGESERVICE_H
-#define ASTORAGESERVICE_H
+#ifndef ASTORAGESSERVICE_H
+#define ASTORAGESSERVICE_H
 
 // System includes
 
@@ -31,14 +31,14 @@
 namespace ARB {
 
 // Class definitions
-class AStorageService : public AThreadServiceTemplate {
+class AStoragesService : public AThreadServiceTemplate {
 
 	Q_OBJECT
 
 	public:
 
-		explicit AStorageService(QObject* parent = nullptr);
-		virtual ~AStorageService(void);
+		explicit AStoragesService(QObject* parent = nullptr);
+		virtual ~AStoragesService(void);
 
 	public slots:
 
@@ -55,4 +55,4 @@ class AStorageService : public AThreadServiceTemplate {
 
 } // namespace ARB
 
-#endif // ASTORAGESERVICE_H
+#endif // ASTORAGESSERVICE_H

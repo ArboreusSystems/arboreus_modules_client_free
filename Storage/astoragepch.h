@@ -19,7 +19,10 @@
 
 // System includes
 #include <QObject>
+#include <QVariant>
 #include <QVariantMap>
+#include <QVariantList>
+#include <QString>
 
 // Application includes
 

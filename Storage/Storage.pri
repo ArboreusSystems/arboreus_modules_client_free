@@ -1,10 +1,11 @@
 INCLUDEPATH += $$PWD
 
 HEADERS += \
-	$$PWD/astorage.h \
+	$$PWD/astoragedatamodels.h \
 	$$PWD/astoragepch.h \
-	$$PWD/astorageservice.h
+	$$PWD/astorages.h \
+	$$PWD/astoragesservice.h
 
 SOURCES += \
-	$$PWD/astorage.cpp \
-	$$PWD/astorageservice.cpp
+	$$PWD/astorages.cpp \
+	$$PWD/astoragesservice.cpp

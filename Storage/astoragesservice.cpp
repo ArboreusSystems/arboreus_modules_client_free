@@ -14,7 +14,7 @@
 // ----------------------------------------------------------
 
 // Class header
-#include "astorageservice.h"
+#include "astoragesservice.h"
 
 // Namespace
 using namespace ARB;
@@ -27,7 +27,7 @@ using namespace ARB;
 	Doc.
 */
 
-AStorageService::AStorageService(QObject* parent) : AThreadServiceTemplate(parent) {
+AStoragesService::AStoragesService(QObject* parent) : AThreadServiceTemplate(parent) {
 
 	_A_DEBUG << "AStorageService created";
 }
@@ -40,7 +40,7 @@ AStorageService::AStorageService(QObject* parent) : AThreadServiceTemplate(paren
 	Doc.
 */
 
-AStorageService::~AStorageService(void) {
+AStoragesService::~AStoragesService(void) {
 
 	_A_DEBUG << "AStorageService deleted";
 }
@@ -53,7 +53,7 @@ AStorageService::~AStorageService(void) {
 	Doc.
 */
 
-void AStorageService::slInit(QString inPathStorageData) {
+void AStoragesService::slInit(QString inPathStorageData) {
 
 	Q_UNUSED(inPathStorageData);
 
